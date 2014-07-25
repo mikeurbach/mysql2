@@ -539,7 +539,7 @@ static VALUE rb_mysql_result_each(int argc, VALUE * argv, VALUE self) {
         }
       } while(row != Qnil);
 
-      rb_mysql_result_free_result(wrapper);
+      /* rb_mysql_result_free_result(wrapper); */
 
       wrapper->numberOfRows = wrapper->lastRowProcessed;
       wrapper->streamingComplete = 1;
@@ -579,7 +579,7 @@ static VALUE rb_mysql_result_each(int argc, VALUE * argv, VALUE self) {
 
         if (row == Qnil) {
           /* we don't need the mysql C dataset around anymore, peace it */
-          rb_mysql_result_free_result(wrapper);
+          /* rb_mysql_result_free_result(wrapper); */
           return Qnil;
         }
 
@@ -589,7 +589,7 @@ static VALUE rb_mysql_result_each(int argc, VALUE * argv, VALUE self) {
       }
       if (wrapper->lastRowProcessed == wrapper->numberOfRows) {
         /* we don't need the mysql C dataset around anymore, peace it */
-        rb_mysql_result_free_result(wrapper);
+        /* rb_mysql_result_free_result(wrapper); */
       }
     }
   }
